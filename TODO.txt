@@ -1,0 +1,3 @@
+-fix aligns
+-color winner
+-split js file
