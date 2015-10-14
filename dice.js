@@ -2,7 +2,8 @@ var counter = 0,
 	intervalId = 0,
 	rollsNum = 22,
 	delay = 70,
-	dice_img = 0;
+	dice_img = 0,
+	roll_button = 0;
 
 
 function setPic() {
@@ -12,10 +13,12 @@ function setPic() {
 	if (counter >= rollsNum) {
 		counter = 0;
 		clearInterval(intervalId);
+		roll_button.disabled = false;
 	}
 }
 
 function roll() {
+	roll_button.disabled = true;
 	intervalId = setInterval(setPic, delay);
 }
 
@@ -26,7 +29,7 @@ function getDice() {
 	dice_img = document.createElement("IMG");
 	dice_img.src = "res/d6.jpg";
 	
-	var roll_button = document.createElement("INPUT");
+	roll_button = document.createElement("INPUT");
 	roll_button.type = "button";
 	roll_button.value = "Roll Dice!";
 	roll_button.onclick = roll;
